@@ -12,6 +12,9 @@ Ubuntu下安装：`sudo apt-get install git`
 将文件添加到暂存区：`git add 文件名 [可选：另一个文件名]`
 将暂存区提交到仓库：`git commit –m "描述"`
 
+本地库的改动提交到远程库：`git push origin master`
+更新本地库至远程库的最新改动：`git pull`
+
 ### 与查询有关的：
 
 查询仓库状态：`git status`
@@ -46,7 +49,7 @@ Ubuntu下安装：`sudo apt-get install git`
 
 先有远程库，后有本地库，从远程库clone到本地库
 
-从远程库克隆到本地：`git clone 网站上的仓库地址`
+* 从远程库克隆到本地：`git clone 网站上的仓库地址`
 
 > 网站地址可以选择HTTPS协议（`https://github.com...`）、SSH协议（`git@github.com...`）。
 > 如果选择SSH协议，必须将Ubuntu的公钥添加到GitHub上。见下一步
@@ -60,5 +63,15 @@ Key保存位置：`/root/.ssh`
 
 已经有了本地库和远程库，二者实现同步
 
-本地库的改动提交到远程库：`git push origin master`
-更新本地库至远程库的最新改动：`git pull`
+
+
+
+
+## 连接git与github
+
+* 生成SSH Key：`ssh-keygen –t rsa –C "你的邮箱@xx.com"`
+* 将当前目录变为仓库：`git init`
+* 关联本地仓库和GitHub库：`git remote add origin 网站上的仓库地址`
+* 配置用户名：`git config --global user.name "你的名字"`
+* 配置e-mail：`git config --global user.email "你的邮箱@xx.com"`
+* 第一次将本地仓库推送到GitHub上：`git push –u origin master`
